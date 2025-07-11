@@ -11,7 +11,7 @@ environment {
     PATH = "/opt/apache-maven-3.9.10/bin:$PATH"
 }
     stages {
-        stage("build"){
+        stage("Code-build"){
             steps {
                  echo "----------- build started ----------"
                 sh 'mvn clean deploy -Dmaven.test.skip=true'
@@ -26,7 +26,7 @@ environment {
             }
         }  
 
-         stage("Build"){
+         stage("Docker Image Creation"){
             steps{
                 echo "This is the building the code"
                 sh "docker build -t ${imageName}:${version} ."

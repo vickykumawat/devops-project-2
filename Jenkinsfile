@@ -1,6 +1,6 @@
 def registry = 'https://hub.docker.com/repositories/vickykumawat'
 def imageName = 'vickykumawat/ttrend'
-def version   = '2.1.4'
+def version   = '2.1.5'
 pipeline {
     agent {
         node {

@@ -1,4 +1,6 @@
 def registry = 'https://valaxy05.jfrog.io'
+def imageName = 'ttrend'
+def version   = '2.1.4'
 pipeline {
     agent {
         node {
@@ -23,5 +25,15 @@ environment {
                  echo "----------- unit test Complted ----------"
             }
         }  
+
+         stage("Build"){
+            steps{
+                echo "This is the building the code"
+                sh 'docker build -t ${imagename}:${version} .'
+                echo "Build is Successfully"
+            }
+        }
+        
+       
 }
 }

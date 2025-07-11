@@ -26,14 +26,14 @@ environment {
             }
         }  
 
-         stage("Docker Image Creation"){
+        stage("Docker Image Creation"){
             steps{
                 echo "This is the building the code"
                 sh "docker build -t ${imageName}:${version} ."
                 echo "Build is Successfully"
             }
         }
-              stage("Push to DockerHub") {
+        stage("Push to DockerHub") {
             steps {
                 withCredentials([usernamePassword(
                     credentialsId: 'dockerhub-credentials',
@@ -49,7 +49,13 @@ environment {
                 }
             }
         }
-
+      stage(" Deploy ") {
+       steps {
+         script {
+           sh './deploy.sh'
+         }
+       }
+     }
        
 }
 }

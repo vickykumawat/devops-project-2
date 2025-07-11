@@ -29,7 +29,7 @@ environment {
          stage("Build"){
             steps{
                 echo "This is the building the code"
-                sh 'docker build -t ${imageName}:${version} .'
+                sh "docker build -t ${imageName}:${version} ."
                 echo "Build is Successfully"
             }
         }

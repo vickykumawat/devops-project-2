@@ -52,7 +52,7 @@ environment {
     stage(" Deploy ") {
        steps {
          script {
-           sh './deploy.sh'
+           sh 'helm install ttrend guvitrend-0.1.0.tgz'
          }
        }
      }
